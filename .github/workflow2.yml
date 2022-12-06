@@ -32,10 +32,9 @@ jobs:
         if: ${{ steps.cache.outputs.cache-hit != 'true'}}
         run: npm ci
         
-      - name: Run eslint 
+      - name: Run ESlint 
         run: npm run lint:check
         docker_build:
-          needs: linting
           runs-on: ubuntu-latest
         
       - name: Log in to Docker Hub
