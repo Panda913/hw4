@@ -31,10 +31,10 @@ jobs:
       - name: Install dependencies
         if: ${{ steps.cache.outputs.cache-hit != 'true'}}
         run: npm ci
-
+        
       - name: ESLint Action eslintrc 
         run: npm install eslint@8.10.0
-         
+
       - name: Run ESLint
         run: npx eslint .
            --config .eslintrc.json
