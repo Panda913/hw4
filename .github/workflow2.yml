@@ -32,8 +32,9 @@ jobs:
         if: ${{ steps.cache.outputs.cache-hit != 'true'}}
         run: npm ci
 
-      - name: Run linter
-        run: npm run lint
+       - name: ESLint Action eslintrc 
+        with:
+          eslint-rc: .eslintrc.json
         
       - name: Build
         run: npm build
