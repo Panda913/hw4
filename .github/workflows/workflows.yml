@@ -33,10 +33,9 @@ jobs:
         run: npm ci
         
       - name: Run ESlint 
-        run: npm run lint:check
-        docker_build:
-            needs: linting
-            runs-on: ubuntu-latest
+        uses: stefanoeb/eslint-action@1.0.2
+        with:
+         files: 'eslintrc.json'
         
       - name: Log in to Docker Hub
         env:
