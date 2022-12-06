@@ -41,7 +41,6 @@ jobs:
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
          
-         
         
       - name: Build and push Docker image
         uses: docker/build-push-action@v2
