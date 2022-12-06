@@ -45,11 +45,7 @@ jobs:
         uses: docker/login-action@v1
         with:
           username: ${{ secrets.USERNAME }}
-          password: ${{ secrets.PASSWORD }}
-         
-        
-      - name: Build and push Docker image
-        uses: docker/build-push-action@v2
-        with:
-          push: true
-          tags: node-js-app:latest
+          password: ${{ secrets.PASSWORD }}   
+          
+      - name: Push to docker hub
+        run: docker push ${{secrets.USERNAME}}/app-js:latest
