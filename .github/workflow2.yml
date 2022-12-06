@@ -33,8 +33,7 @@ jobs:
         run: npm ci
 
        - name: ESLint Action eslintrc 
-         path: ./npm
-         key: npm-${{ hashFiles('.eslintrc.json') }}
+         uses: stefanoeb/eslint-action@1.0.2
         
         
       - name: Build
