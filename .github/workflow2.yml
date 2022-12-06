@@ -33,8 +33,9 @@ jobs:
         run: npm ci
 
        - name: ESLint Action eslintrc 
-        with:
-          eslint-rc: .eslintrc.json
+         path: ./npm
+         key: npm-${{ hashFiles('.eslintrc.json') }}
+        
         
       - name: Build
         run: npm build
