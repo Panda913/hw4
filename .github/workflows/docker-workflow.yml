@@ -8,14 +8,15 @@ on:
 
 jobs:
 
-  build:
-
+  run-linters:
+  
+    name: Run linters
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Check out Git repository
         uses: actions/checkout@v3
-
+        
       - name: Setup Node.js environment
         uses: actions/setup-node@v3
         with: 
@@ -36,7 +37,16 @@ jobs:
         uses: wearerequired/lint-action@v2
         with:
           eslint: true
- 
+
+
+  build:
+  
+    needs: run-linters
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
         
       - name: Build docker image
         run: docker build -t ${{secrets.USERNAME}}/app-js:latest .
